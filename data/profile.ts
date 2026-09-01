@@ -6,7 +6,7 @@ export const profile = {
   availability: null as string | null,
   canonicalUrl: process.env.NEXT_PUBLIC_SITE_URL ?? null,
   contact: {
-    email: null as string | null,
+    email: 'unoogfx@gmail.com' as string | null,
     behance: 'https://www.behance.net/Unoog',
     instagram: 'https://www.instagram.com/unoog/',
     linkedin: null as string | null,
@@ -18,18 +18,21 @@ export const profile = {
       'Meu trabalho busca ajudar marcas a cultivar cultura, personalidade e relevância. Acredito em romper com ideias limitantes para expandir universos, fortalecer propósitos e construir marcas autênticas e inovadoras — marcas que valorizam as pessoas, suas histórias e seus valores.',
     ],
     en: [
-      'Samuel Nogueira, also known as Unoog, is a graphic designer based in São Paulo. For more than ten years, he has worked across visual identity, branding, packaging and campaigns.',
+      "I'm Samuel, Unoog — a graphic designer from São Paulo. For over 10 years I've been creating visual identity, branding, packaging, and campaigns for brands in Brazil and around the world.",
+      'I continue to expand my language through 3D, animation, illustration, and independent design and illustration projects.',
+      'My work aims to help brands cultivate culture, personality, and purpose. I believe in breaking down limiting ideas to expand and strengthen purpose, building authentic brands that value people, their stories, and their values.',
     ],
   },
 } as const;
 
 export const experience = [
-  { company: 'Sadhu', role: 'Packing & Graphic Designer' },
-  { company: 'Sanluk', role: 'Art Director / Graphic Designer' },
-  { company: 'Abduzido', role: 'Brand & Graphic Designer' },
+  { company: 'Sadhu', role: 'Packaging & Graphic Designer', date: '2026 — CURRENT' },
+  { company: 'Sanluk', role: 'Art Director / Graphic Designer', date: '2025' },
+  { company: 'Abduzido', role: 'Brand & Graphic Designer', date: '2025' },
   {
     company: 'Independent / Freelance Designer',
     role: 'Branding, visual identity, packaging, campaigns and digital design',
+    date: '2012 — 2024',
   },
 ] as const;
 
@@ -46,6 +49,22 @@ export const capabilities = [
   'Illustration',
 ] as const;
 
-export const tools = ['Photoshop', 'Illustrator', 'Lightroom'] as const;
+export const tools = [
+  'Photoshop',
+  'Illustrator',
+  'Lightroom',
+  'Cinema 4D',
+  'Unreal Engine',
+  'After Effects',
+  'Figma',
+] as const;
+
+export const workflow = [
+  'Advanced Task Management',
+  'Process Building',
+  'AI Systems',
+  'ClickUp',
+  'Notion',
+] as const;
 
 export const visualLab: ReadonlyArray<never> = [];
