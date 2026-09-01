@@ -1,8 +1,9 @@
 'use client';
 
+/* oxlint-disable next/no-img-element */
+
 import type { CSSProperties } from 'react';
 import { useRef, useState } from 'react';
-import Image from 'next/image';
 
 const faces = ['/brand/icons/asset-30.svg', '/brand/icons/asset-31.svg', '/brand/icons/asset-32.svg', '/brand/icons/asset-33.svg'];
 
@@ -34,12 +35,10 @@ export function ThoughtBreak() {
     <section className="thought-break" aria-labelledby="thought-title" onPointerMove={handlePointerMove} onPointerLeave={() => setTrail([])}>
       <div className="thought-invert" aria-hidden="true" />
       {trail.map((mark) => (
-        <Image
+        <img
           className="thought-trail-mark"
           src={mark.face}
           alt=""
-          width={62}
-          height={62}
           key={mark.id}
           style={{ left: mark.x, top: mark.y, '--trail-index': mark.id % 6 } as CSSProperties}
         />
@@ -50,7 +49,7 @@ export function ThoughtBreak() {
         <span><i>PAST</i> THE EXPECTED*</span>
       </h2>
       <p>Curiosity builds the distance between familiar and unforgettable.</p>
-      <Image className="thought-character" src="/brand/characters/head-primary.svg" width={361} height={480} alt="" aria-hidden="true" />
+      <img className="thought-character" src="/brand/characters/head-primary.svg" alt="" aria-hidden="true" />
     </section>
   );
 }

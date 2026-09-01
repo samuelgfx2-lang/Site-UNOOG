@@ -1,15 +1,16 @@
 'use client';
 
+/* oxlint-disable next/no-img-element */
+
 import type { CSSProperties } from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import Image from 'next/image';
 import { ArrowLeft, ArrowRight, ExternalLink, Pause, X } from 'lucide-react';
 import { BrandSymbol, Wordmark } from '@/components/brand-mark';
 import { initialProjectCount, projects, type CaseMedia, type ProjectModule } from '@/data/projects';
 
 function CaseMediaView({ media }: { media: CaseMedia }) {
   if (media.src) {
-    return <Image className="case-media-image" src={media.src} alt={media.alt} fill sizes="(max-width: 800px) 100vw, 90vw" />;
+    return <img className="case-media-image" src={media.src} alt={media.alt} />;
   }
 
   return (
@@ -177,7 +178,7 @@ export function ProjectGrid() {
               aria-label={`View project: ${project.title}`}
             >
               <div className={`project-cover ${project.coverClass} ${project.coverImage ? 'has-cover-image' : ''}`}>
-                {project.coverImage ? <Image className="project-cover-image" src={project.coverImage} alt="" fill sizes="(max-width: 800px) 100vw, 66vw" /> : null}
+                {project.coverImage ? <img className="project-cover-image" src={project.coverImage} alt="" /> : null}
                 <span className="cover-index">{project.id}</span>
                 <span className="cover-title">{project.title}</span>
                 {project.slug === 'unoog-visual-identity' ? <Wordmark className="cover-logo" /> : null}

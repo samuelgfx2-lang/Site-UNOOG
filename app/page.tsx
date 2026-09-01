@@ -1,4 +1,4 @@
-import Image from 'next/image';
+/* oxlint-disable next/no-img-element */
 import { BrandSymbol, Wordmark } from '@/components/brand-mark';
 import { ContactLinks } from '@/components/contact-links';
 import { CustomCursor } from '@/components/custom-cursor';
@@ -53,7 +53,7 @@ export default function Home() {
         <div className="section-heading">
           <p>SELECTED WORK — NOW</p>
           <RepelTitle />
-          <div className="section-side"><p>IDENTITY FIRST.<br />PROJECTS SECOND.<br />INTERFACE THIRD.</p><Image src="/brand/characters/head-primary.svg" width={361} height={480} alt="" aria-hidden="true" /></div>
+          <div className="section-side"><p>IDENTITY FIRST.<br />PROJECTS SECOND.<br />INTERFACE THIRD.</p><img src="/brand/characters/head-primary.svg" alt="" aria-hidden="true" /></div>
         </div>
         <ProjectGrid />
       </section>
@@ -78,7 +78,7 @@ export default function Home() {
         </div>
         <h2 id="about-title">ABOUT<br />UN*OG</h2>
         <BrandSymbol className="about-symbol" aria-hidden="true" />
-        <Image className="about-character" src="/brand/characters/head-light.svg" width={361} height={480} alt="UNOOG illustrated character" />
+        <img className="about-character" src="/brand/characters/head-light.svg" alt="UNOOG illustrated character" />
         <div className="about-copy">
           <div className="about-language about-language-pt" lang="pt-BR"><span>PT / BR</span>{profile.about.pt.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
           <div className="about-language about-language-en" lang="en"><span>EN / INTL</span>{profile.about.en.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
@@ -137,10 +137,10 @@ export default function Home() {
         <h2 id="contact-title">LET&apos;S MAKE<br />SOMETHING<br /><span>INTERESTING*</span></h2>
         <BrandSymbol aria-hidden="true" />
         <div className="contact-icons" aria-hidden="true">
-          <Image src="/brand/icons/asset-13.svg" width={48} height={48} alt="" />
-          <Image src="/brand/icons/asset-16.svg" width={48} height={48} alt="" />
-          <Image src="/brand/icons/asset-21.svg" width={48} height={48} alt="" />
-          <Image src="/brand/icons/asset-22.svg" width={48} height={48} alt="" />
+          <img src="/brand/icons/asset-13.svg" alt="" />
+          <img src="/brand/icons/asset-16.svg" alt="" />
+          <img src="/brand/icons/asset-21.svg" alt="" />
+          <img src="/brand/icons/asset-22.svg" alt="" />
         </div>
         <ContactLinks
           email={profile.contact.email}
