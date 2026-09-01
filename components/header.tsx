@@ -91,7 +91,7 @@ export function Header() {
             aria-modal="true"
             aria-labelledby="mobile-menu-title"
           >
-            <p id="mobile-menu-title" className="mobile-menu-label">UN*OOG / INDEX</p>
+            <p id="mobile-menu-title" className="mobile-menu-label">UN*OG / INDEX</p>
             <button type="button" className="mobile-menu-close" onClick={closeMenu} aria-label="Close menu">
               <X aria-hidden="true" />
             </button>
