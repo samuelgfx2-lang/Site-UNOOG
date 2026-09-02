@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { IBM_Plex_Mono, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 
-const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://site-unoog.samuelgfx2.workers.dev';
+const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://unoog.online';
 const siteTitle = 'UNOOG — Samuel Nogueira | Multidisciplinary Designer';
 const siteDescription =
   'Portfólio de Samuel Nogueira, designer multidisciplinar em São Paulo, com projetos de branding, identidade visual, embalagens, campanhas, 3D e ilustração.';
