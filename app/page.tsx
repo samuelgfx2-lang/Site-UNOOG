@@ -1,8 +1,9 @@
 /* oxlint-disable next/no-img-element */
-import { BrandSymbol, Wordmark } from '@/components/brand-mark';
+import { BrandSymbol, OgMark, Wordmark } from '@/components/brand-mark';
 import { ContactLinks } from '@/components/contact-links';
 import { CustomCursor } from '@/components/custom-cursor';
 import { Header } from '@/components/header';
+import { InteractiveCharacter } from '@/components/interactive-character';
 import { ProjectGrid } from '@/components/project-grid';
 import { RepelTitle } from '@/components/repel-title';
 import { ThoughtBreak } from '@/components/thought-break';
@@ -36,6 +37,7 @@ export default function Home() {
         <div className="hero-orange" aria-hidden="true" />
         <p className="hero-vertical hero-vertical-left">SAMUEL NOGUEIRA / MULTIDISCIPLINARY DESIGNER</p>
         <p className="hero-kicker">UNOOG® / SÃO PAULO — BRAZIL</p>
+        <div className="availability-badge"><span aria-hidden="true" /><strong>AVAILABLE FOR NEW PROJECTS</strong></div>
         <h1 id="hero-title" className="hero-title">
           <span>SAMUEL</span>
           <span>UN*OG</span>
@@ -53,7 +55,7 @@ export default function Home() {
         <div className="section-heading">
           <p>SELECTED WORK — NOW</p>
           <RepelTitle />
-          <div className="section-side"><p>IDENTITY FIRST.<br />PROJECTS SECOND.<br />INTERFACE THIRD.</p><img src="/brand/characters/head-primary.svg" alt="" aria-hidden="true" /></div>
+          <div className="section-side"><p>IDENTITY FIRST.<br />PROJECTS SECOND.<br />INTERFACE THIRD.</p><InteractiveCharacter className="work-character" src="/brand/characters/head-primary.svg" alt="" decorative /></div>
         </div>
         <ProjectGrid />
       </section>
@@ -63,10 +65,16 @@ export default function Home() {
       <section className="ribbon-stage" aria-label="Capabilities in motion">
         <p className="sr-only">Branding, visual identity, packaging, campaigns, 3D and illustration.</p>
         <div className="kinetic-ribbon ribbon-orange" aria-hidden="true">
-          <span>BRANDING ✱ VISUAL IDENTITY ✱ PACKAGING ✱ CAMPAIGNS ✱ BRANDING ✱ VISUAL IDENTITY ✱ PACKAGING ✱ CAMPAIGNS ✱</span>
+          <div className="ribbon-track">
+            <span>BRANDING ✱ VISUAL IDENTITY ✱ PACKAGING ✱ CAMPAIGNS ✱</span>
+            <span>BRANDING ✱ VISUAL IDENTITY ✱ PACKAGING ✱ CAMPAIGNS ✱</span>
+          </div>
         </div>
         <div className="kinetic-ribbon ribbon-blue" aria-hidden="true">
-          <span>ART DIRECTION ✱ DIGITAL DESIGN ✱ 3D &amp; MOTION ✱ ILLUSTRATION ✱ ART DIRECTION ✱ DIGITAL DESIGN ✱ 3D &amp; MOTION ✱ ILLUSTRATION ✱</span>
+          <div className="ribbon-track">
+            <span>ART DIRECTION ✱ DIGITAL DESIGN ✱ 3D &amp; MOTION ✱ ILLUSTRATION ✱</span>
+            <span>ART DIRECTION ✱ DIGITAL DESIGN ✱ 3D &amp; MOTION ✱ ILLUSTRATION ✱</span>
+          </div>
         </div>
         <BrandSymbol aria-hidden="true" />
       </section>
@@ -78,7 +86,7 @@ export default function Home() {
         </div>
         <h2 id="about-title">ABOUT<br />UN*OG</h2>
         <BrandSymbol className="about-symbol" aria-hidden="true" />
-        <img className="about-character" src="/brand/characters/head-light.svg" alt="UNOOG illustrated character" />
+        <InteractiveCharacter className="about-character" src="/brand/characters/head-light.svg" alt="UNOOG illustrated character" />
         <div className="about-copy">
           <div className="about-language about-language-pt" lang="pt-BR"><span>PT / BR</span>{profile.about.pt.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
           <div className="about-language about-language-en" lang="en"><span>EN / INTL</span>{profile.about.en.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
@@ -136,11 +144,18 @@ export default function Home() {
         <p>NEW BUSINESS / COLLABORATIONS / CONVERSATIONS</p>
         <h2 id="contact-title">LET&apos;S MAKE<br />SOMETHING<br /><span>INTERESTING*</span></h2>
         <BrandSymbol aria-hidden="true" />
-        <div className="contact-icons" aria-hidden="true">
-          <img src="/brand/icons/asset-13.svg" alt="" />
-          <img src="/brand/icons/asset-16.svg" alt="" />
-          <img src="/brand/icons/asset-21.svg" alt="" />
-          <img src="/brand/icons/asset-22.svg" alt="" />
+        <div className="contact-cta-panel">
+          <div className="contact-panel-copy">
+            <span>NEW PROJECT / 2026</span>
+            <h3>LET&apos;S GET YOUR PROJECT OFF THE GROUND?</h3>
+            <p>Tell me what you are building, where the brand needs to go and what would make the project a success.</p>
+          </div>
+          <div className="contact-panel-actions">
+            <a href={`mailto:${profile.contact.email}?subject=Novo%20projeto%20—%20UNOOG`}>Send an email <span>↗</span></a>
+            <a href={profile.contact.whatsapp} target="_blank" rel="noreferrer">Let&apos;s talk on WhatsApp <span>↗</span></a>
+            <a href={profile.contact.behance} target="_blank" rel="noreferrer">Full portfolio <span>↗</span></a>
+          </div>
+          <a className="contact-panel-og" href="#top" aria-label="UNOOG — back to top"><OgMark /></a>
         </div>
         <ContactLinks
           email={profile.contact.email}

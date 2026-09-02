@@ -5,6 +5,7 @@ import { BrandSymbol } from '@/components/brand-mark';
 
 export function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement | null>(null);
+  const labelRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     const cursor = cursorRef.current;
@@ -29,7 +30,16 @@ export function CustomCursor() {
     const leave = () => { cursor.dataset.visible = 'false'; };
     const over = (event: PointerEvent) => {
       const target = event.target instanceof Element ? event.target : null;
-      cursor.dataset.active = target?.closest('a, button, [role="button"]') ? 'true' : 'false';
+      const interactive = target?.closest('a, button, input, [role="button"]');
+      cursor.dataset.active = interactive ? 'true' : 'false';
+      if (!labelRef.current || !interactive) return;
+      labelRef.current.textContent = interactive.matches('input[type="range"]')
+        ? 'DRAG'
+        : interactive.matches('.project-trigger')
+          ? 'VIEW'
+          : interactive.matches('button')
+            ? 'SELECT'
+            : 'OPEN';
     };
 
     window.addEventListener('pointermove', move, { passive: true });
@@ -46,6 +56,7 @@ export function CustomCursor() {
   return (
     <div ref={cursorRef} className="custom-cursor" aria-hidden="true">
       <BrandSymbol />
+      <span ref={labelRef} className="custom-cursor-label">OPEN</span>
     </div>
   );
 }

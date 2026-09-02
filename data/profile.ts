@@ -7,6 +7,7 @@ export const profile = {
   canonicalUrl: process.env.NEXT_PUBLIC_SITE_URL ?? null,
   contact: {
     email: 'unoogfx@gmail.com' as string | null,
+    whatsapp: 'https://wa.me/?text=Ol%C3%A1%2C%20Samuel!%20Conheci%20seu%20trabalho%20pelo%20site%20da%20UNOOG%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.',
     behance: 'https://www.behance.net/Unoog',
     instagram: 'https://www.instagram.com/unoog/',
     linkedin: null as string | null,

@@ -74,6 +74,26 @@ function BeforeAfter({ module }: { module: Extract<ProjectModule, { type: 'befor
   );
 }
 
+function CaseLinkGrid({ module }: { module: Extract<ProjectModule, { type: 'link-grid' }> }) {
+  return (
+    <section className="case-link-grid">
+      <header className="case-module-header">
+        <div><p>PROJECT INDEX / {String(module.items.length).padStart(2, '0')} LINKS</p><h3>{module.title}</h3></div>
+        <p>{module.description}</p>
+      </header>
+      <div className="case-link-list">
+        {module.items.map((item, index) => (
+          <a href={item.href} target="_blank" rel="noreferrer" key={item.href}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <strong>{item.label}</strong>
+            <ExternalLink aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export function ProjectGrid() {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
@@ -99,8 +119,8 @@ export function ProjectGrid() {
   }, []);
 
   useEffect(() => {
-    const baseTitle = 'Samuel Unoog — Multidisciplinary Designer';
-    document.title = selectedProject ? `${selectedProject.title} — Samuel Unoog` : baseTitle;
+    const baseTitle = 'UNOOG — Samuel Nogueira | Multidisciplinary Designer';
+    document.title = selectedProject ? `${selectedProject.title} — UNOOG` : baseTitle;
     return () => { document.title = baseTitle; };
   }, [selectedProject]);
 
@@ -177,17 +197,20 @@ export function ProjectGrid() {
               onClick={(event) => openProject(project.slug, event.currentTarget)}
               aria-label={`View project: ${project.title}`}
             >
-              <div className={`project-cover ${project.coverClass} ${project.coverImage ? 'has-cover-image' : ''}`}>
+              <div className={`project-cover ${project.coverClass} ${project.coverImage ? 'has-cover-image' : ''} ${project.slug === 'unoog-visual-identity' ? 'is-unoog-cover' : ''}`}>
                 {project.coverImage ? <img className="project-cover-image" src={project.coverImage} alt="" /> : null}
-                <span className="cover-index">{project.id}</span>
-                <span className="cover-title">{project.title}</span>
-                {project.slug === 'unoog-visual-identity' ? <Wordmark className="cover-logo" /> : null}
-                <BrandSymbol className="cover-hover-symbol" aria-hidden="true" />
+                {project.slug === 'unoog-visual-identity' ? (
+                  <Wordmark className="cover-logo-center" title="UNOOG" />
+                ) : (
+                  <>
+                    {project.coverLabel || !project.coverImage ? <span className="cover-art" aria-hidden="true">{project.coverLabel ?? project.id}</span> : null}
+                    <span className="cover-title">{project.title}</span>
+                  </>
+                )}
                 <span className="cover-status">VIEW PROJECT ↗</span>
               </div>
               <div className="project-meta">
                 <span>{project.id}</span>
-                <h3>{project.title}</h3>
                 <p>{project.year ?? 'YEAR — TBC'}</p>
                 <p>{project.categories.join(' / ')}</p>
               </div>
@@ -219,7 +242,7 @@ export function ProjectGrid() {
                   <div><dt>Category</dt><dd>{selectedProject.categories.join(' / ')}</dd></div>
                   <div><dt>Services</dt><dd>{selectedProject.services.join(' / ')}</dd></div>
                 </dl>
-                {selectedProject.sourceUrl ? <a className="viewer-source" href={selectedProject.sourceUrl} target="_blank" rel="noreferrer">Original Behance <ExternalLink aria-hidden="true" /></a> : null}
+                {selectedProject.sourceUrl ? <a className="viewer-source" href={selectedProject.sourceUrl} target="_blank" rel="noreferrer">View full project <ExternalLink aria-hidden="true" /></a> : null}
                 {selectedProject.slug === 'unoog-visual-identity' ? <BrandSymbol className="viewer-symbol" aria-hidden="true" /> : null}
               </header>
 
@@ -236,6 +259,7 @@ export function ProjectGrid() {
                   }
                   if (module.type === 'carousel') return <CaseCarousel key={`${module.type}-${index}`} module={module} />;
                   if (module.type === 'before-after') return <BeforeAfter key={`${module.type}-${index}`} module={module} />;
+                  if (module.type === 'link-grid') return <CaseLinkGrid key={`${module.type}-${index}`} module={module} />;
                   return (
                     <section className="case-timeline" key={`${module.type}-${index}`}>
                       <header className="case-module-header"><div><p>PROCESS / {String(module.steps.length).padStart(2, '0')} STAGES</p><h3>{module.title}</h3></div></header>

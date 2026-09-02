@@ -36,7 +36,7 @@ export function ThoughtBreak() {
       <div className="thought-invert" aria-hidden="true" />
       {trail.map((mark) => (
         <img
-          className="thought-trail-mark"
+          className={`thought-trail-mark ${mark.id % 2 === 0 ? 'is-trail-light' : 'is-trail-orange'}`}
           src={mark.face}
           alt=""
           key={mark.id}

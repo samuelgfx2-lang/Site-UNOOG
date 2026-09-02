@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { X } from 'lucide-react';
-import { Wordmark } from '@/components/brand-mark';
+import { OgMark } from '@/components/brand-mark';
 
 const links = [
   { href: '#selected-work', label: 'Work' },
@@ -62,7 +62,7 @@ export function Header() {
   return (
     <header className="site-header">
       <a href="#top" className="header-brand" aria-label="UNOOG — back to top">
-        <Wordmark className="h-7 w-auto" />
+        <OgMark className="header-og-mark" title="UNOOG" />
         <span>SAMUEL NOGUEIRA — MULTIDISCIPLINARY DESIGNER</span>
       </a>
 

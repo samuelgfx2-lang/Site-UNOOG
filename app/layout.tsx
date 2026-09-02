@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import { IBM_Plex_Mono, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 
-const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+const siteOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://site-unoog.samuelgfx2.workers.dev';
+const siteTitle = 'UNOOG — Samuel Nogueira | Multidisciplinary Designer';
+const siteDescription =
+  'Portfólio de Samuel Nogueira, designer multidisciplinar em São Paulo, com projetos de branding, identidade visual, embalagens, campanhas, 3D e ilustração.';
 
 const display = Space_Grotesk({
   variable: '--font-display',
@@ -18,22 +21,22 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
-  title: 'Samuel Unoog — Multidisciplinary Designer',
-  description:
-    'Portfolio of Samuel Unoog, a multidisciplinary designer based in São Paulo working across branding, visual identity, packaging, campaigns, 3D and illustration.',
+  title: siteTitle,
+  description: siteDescription,
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
-    title: 'Samuel Unoog — Multidisciplinary Designer',
-    description:
-      'Portfolio of Samuel Unoog, a multidisciplinary designer based in São Paulo working across branding, visual identity, packaging, campaigns, 3D and illustration.',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Samuel Unoog — Multidisciplinary Designer' }],
+    url: '/',
+    siteName: 'UNOOG',
+    locale: 'pt_BR',
+    title: siteTitle,
+    description: siteDescription,
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: siteTitle }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Samuel Unoog — Multidisciplinary Designer',
-    description:
-      'Portfolio of Samuel Unoog, a multidisciplinary designer based in São Paulo working across branding, visual identity, packaging, campaigns, 3D and illustration.',
+    title: siteTitle,
+    description: siteDescription,
     images: ['/og.png'],
   },
 };
